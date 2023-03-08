@@ -74,7 +74,7 @@ form input{
 }
 
 @media only screen and (max-width: 770px){
-    .container{
+    .flexContainer{
         flex-direction: column;
     }
     body{
