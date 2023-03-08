@@ -6,7 +6,7 @@ import Cards from 'react-credit-cards';
 import styles from './PaymentCard.module.css'
 export default function PaymentCard() {
 
-  const [number, setNumber] = useState('');
+  const [number, setNumber] = useState('4545');
 
   const [name, setName] = useState('');
 
@@ -20,11 +20,10 @@ export default function PaymentCard() {
   }
 
   return (
-    <div className={styles.payment}>
-
+    <body className={styles.payment}>
     <div className={styles.container}>
-        
     <h3>Please Fill your card Details</h3>
+    <div className={styles.flexContainer}>
        <Cards
 
           cvc={cvc}
@@ -49,7 +48,7 @@ export default function PaymentCard() {
 
           val={number}
 
-          placeholder={"Enter Number"}
+          placeholder={"xxxx-xxxx-xxxx-xxxx"}
 
           onChange={e => setNumber(e.target.value)}
 
@@ -65,13 +64,14 @@ export default function PaymentCard() {
 
           val={name}
 
-          placeholder={"Enter Name"}
+          placeholder={"Name of card holder"}
 
           onChange={e => setName(e.target.value)}
 
           onFocus={e=>setFocus(e.target.name)}
 
         />
+        <div className={styles.cvvNum}>
 
         <input
 
@@ -81,7 +81,7 @@ export default function PaymentCard() {
 
           val={expiry}
 
-          placeholder={"Enter Expiry date"}
+          placeholder={"MM/YY"}
 
           onChange={e => setExpiry(e.target.value)}
 
@@ -97,19 +97,21 @@ export default function PaymentCard() {
 
           val={cvc}
 
-          placeholder={"Enter Cvc"}
+          placeholder={"***"}
 
           onChange={e => setCvc(e.target.value)}
 
           onFocus={e=>setFocus(e.target.name)}
 
         />
+        </div>
         <input type="submit" value="Proceed to checkout" className={styles.btn}/>
 
       </form>
 
     </div>
     </div>
+    </body>
   );
 
 }
