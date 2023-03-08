@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/react_cardPay/static/css/main.c5d48294.css",
+    "main.js": "/react_cardPay/static/js/main.8542f9da.js",
+    "index.html": "/react_cardPay/index.html",
+    "main.c5d48294.css.map": "/react_cardPay/static/css/main.c5d48294.css.map",
+    "main.8542f9da.js.map": "/react_cardPay/static/js/main.8542f9da.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c5d48294.css",
+    "static/js/main.8542f9da.js"
+  ]
+}
