@@ -1,0 +1,46 @@
+const intialValues = { name: "", email: "", address: "" };
+const [formValues, setFormValues] = useState(intialValues);
+const intialdet = { cardNum: "", month: "", cvv: "" };
+const [formdet, setFormdet] = useState(intialdet);
+
+const [formErrors, setFormErrors] = useState({});
+const [isSubmit, setIsSubmit] = useState(false);
+
+const handleChange = (e) => {
+  console.log(e.target);
+  const { name, value } = e.target;
+  setFormValues({ ...formValues, [name]: value });
+  console.log(formValues);
+};
+const handleSubmit = (e) => {
+  e.preventDefault();
+  setFormErrors(validate(formValues));
+  setIsSubmit(true);
+};
+
+useEffect(() => {
+  console.log(formErrors);
+  if (Object.keys(formErrors).length === 0 && isSubmit) {
+    console.log(formValues);
+  }
+}, [formErrors]);
+const validate = (values) => {
+  const errors = {};
+  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+  if (!values.name) {
+    errors.name = "Username is required!";
+  }
+  if (!values.email) {
+    errors.email = "Email is required!";
+  } else if (!regex.test(values.email)) {
+    errors.email = "This is not a valid email format!";
+  }
+  if (!values.address) {
+    errors.address = "address is required";
+  } else if (values.address.length < 4) {
+    errors.address = "address must be more than 4 characters";
+  } else if (values.address.length > 10) {
+    errors.address = "address cannot exceed more than 10 characters";
+  }
+  return errors;
+};
